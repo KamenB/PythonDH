@@ -1,5 +1,9 @@
 # PythonDH
 
+# Prerequisites
+
+For this software to run the **pycrypto** library is required. To install with pip run ```pip install pycrypto```.
+
 # Key exchange
 
 Run ```python generate.py``` and send the output to the other person.
