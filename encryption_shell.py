@@ -38,7 +38,7 @@ class AESCipher(object):
         return s[:-ord(s[len(s)-1:])]
 
 f = open("shared_secret.txt", "r")
-secret = f.readlines()[0].strip("\n")
+secret = f.readlines()[0].strip()
 aesCipher = AESCipher(secret)
 
 while True:

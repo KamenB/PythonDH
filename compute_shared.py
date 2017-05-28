@@ -5,9 +5,13 @@ g = 2
 
 f = open("secret.txt", "r")
 a = int(f.readlines()[0])
+f.close()
 
 g_b = int(sys.argv[1])
 
 g_b_a = pow(g_b, a, p)
 
-print(g_b_a)
+f_out = open("shared_secret.txt", "w")
+f_out.write(str(g_b_a))
+f_out.close()
+print("Success")
