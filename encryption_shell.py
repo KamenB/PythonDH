@@ -16,7 +16,6 @@ class AESCipher(object):
     def __init__(self, key): 
         self.bs = 32
         self.key = hashlib.sha256(key.encode()).digest()
-        print(self.key)
 
     def encrypt(self, raw):
         raw = self._pad(raw)
@@ -52,9 +51,9 @@ while True:
         # Remove stuff in version 3
         if ciphertext[:2] == "b'":
             ciphertext = ciphertext[2:-1]
-        print(ciphertext + "\n")
+        print("\n" + ciphertext + "\n")
     elif command == "d":
         print("Insert cyphertext to decrypt:")
         ciphertext = input()
         message = aesCipher.decrypt(ciphertext)
-        print(message + "\n")
+        print("\n" + message + "\n")
