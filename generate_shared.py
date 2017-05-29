@@ -65,7 +65,7 @@ if __name__ == '__main__':
 
     # Show g^a to the user
     g_to_a = pow(g, a, p)
-    print("Send this to the other person:", g_to_a)
+    print("Send this to the other person: " + str(g_to_a))
 
     # Recieve number from the partner
     print("Paste number recieved from other person:")
