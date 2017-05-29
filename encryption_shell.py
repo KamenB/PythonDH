@@ -37,10 +37,33 @@ if __name__ == '__main__':
     except NameError:
        pass
 
-    f = open("shared_secret.txt", "r")
-    secret = f.readlines()[0].strip()
+    # Fetch secrets database
+    f = open("shared_secrets.txt", "r")
+    secrets = [x.strip().split(",") for x in f.readlines()]
+    f.close()
+    l = "Select correspondant:\n"
+    for i, secret in enumerate(secrets):
+        l += secret[0] + ": " + str(i) + "\n"
+    print(l)
+    
+    # Wait for correct correspondent choice
+    while True:
+        try:
+            j = int(input())
+        except ValueError:
+            print("Please enter a number in the provided range")
+            continue
+        if j < 0 or j >= len(secrets):
+            print("Please enter a number in the provided range")
+            continue
+        break
+    print("Correspondant chosen: " + secrets[j][0])
+    secret = secrets[j][1]
+
+    # Construct cipher object
     aesCipher = AESCipher(secret)
 
+    # Begin encryption/decryption shell
     while True:
         print("Choose action: Encryption[e]/Decryption[d]")
         command = input()
